@@ -1,0 +1,14 @@
+import mysql.connector
+
+if __name__ == '__main__':
+    mydb = mysql.connector.connect(
+        host="localhost", user="root", password="root",
+        database="biu_shoes", port="3307"
+    )
+    cursor = mydb.cursor()
+
+    cursor.execute("UPDATE size SET uk_number = 5 WHERE size_id = 1;")
+
+    mydb.commit()
+    cursor.close()
+    mydb.close()
